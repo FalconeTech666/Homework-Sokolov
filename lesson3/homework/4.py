@@ -6,12 +6,20 @@
 	 - единицы
 
 пример: # знак >>> значит что ввели что-то через input
-    >>> 21234 
+    #>>> 21234 
     тысяч - 21
     сотни - 2
     десятки - 3
     единицы - 4
 '''
-
+number = int(input("Введите любое число"))
+thousands = number // 1000
+hundreds = (number % 1000) // 100
+tens = (number % 100) // 10
+ones = number % 10
+print(f"Тыячи: {thousands}")
+print(f"Сотни: {hundreds}")
+print(f"Десятки: {tens}")
+print(f"Единицы: {ones}")
 
 
