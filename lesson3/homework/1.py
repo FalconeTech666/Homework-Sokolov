@@ -5,6 +5,13 @@
 	- одну строку через " : "
 	- три строки начиная с дефиса
 '''
+name = input("Введите ваше имя: ")
+lastname = input("Введите вашу фамилию: ")
+surname = input("Введите ваше отчество: ")
+print(name, lastname, surname)
+print(name+" : ", lastname+" : ", surname+" : ")
+print (" -"+name, " -"+lastname, " -"+surname, sep = "\n")
+
 
 
 
