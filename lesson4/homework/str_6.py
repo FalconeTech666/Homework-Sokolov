@@ -5,4 +5,7 @@
 Программа должна работать с любой другой строкой с подобными тэгами.
 
 '''
-
+info = "Это тестовая <start>строка для изучения<end> строковых операций"
+start = info.find("<start>")+len("<start>")
+end = info.find("<end>")
+print(info[start:end])
