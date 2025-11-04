@@ -8,3 +8,5 @@
     (решить без for)
     
 '''
+number = int(input("Введите любое число: "))
+print(f"{number:,}".replace(",", " "))
