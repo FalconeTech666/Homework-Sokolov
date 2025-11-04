@@ -11,4 +11,9 @@
             - 18
 
 '''
-
+info = "имя: Дмитрий, фамилия: Иванов, возраст: 18"
+info_1 = info.split(", ")
+name = info_1[0].split(": ")[1]
+surname = info_1[1].split(": ")[1]
+age = info_1[2].split(": ")[1]
+print(f"- {name}\n- {surname}\n- {age}")
