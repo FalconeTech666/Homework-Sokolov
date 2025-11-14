@@ -4,3 +4,12 @@
 Вывести на экран.
 Вывести True при наличии в списке имени 'Вася'
 '''
+
+names = input("Введите 5 имён через пробел: ").split()
+
+names.sort(key=str.lower)
+
+lowered = list(map(str.lower, names))
+
+print("Отсортированный список:", names)
+print("Есть Вася?", "вася" in lowered)
