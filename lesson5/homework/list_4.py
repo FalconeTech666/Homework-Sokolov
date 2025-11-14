@@ -6,3 +6,8 @@
 
 '''
 
+n = ['hello', 'python', 'интерпретатор', 'pep8', "123"]
+
+result = list(map(len, n))
+
+print(result)
