@@ -44,3 +44,23 @@ if name in staff:
     print(staff[name])
 else:
     print("Сотрудник не найден")
+    quest = input("Хотите добавить нового сотрудника? (да/нет): ")
+    if quest == "да":
+        staff[quest] = {
+        "fio": input("Введите ФИО: "),
+        "position": input("Введите должность: "),
+        "birth_year": int(input("Введите год рождения: ")),
+        "skills": input("Введите 3 навыка через запятую: ").split(","),
+        "children": [
+        {
+            "name": input("Имя ребёнка: "),
+            "birth_year": int(input("Год рождения ребёнка: "))
+        }
+    ]
+}
+
+        print("\nТекущий список сотрудников:")
+        print(staff)
+
+    else:
+        print("Хорошо")
