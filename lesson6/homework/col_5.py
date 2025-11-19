@@ -5,5 +5,17 @@
     -* вывести символ который встречался чаще всего
 
 """
+phrase = input("Введите фразу: ")
 
+char = len(set(phrase)) # set() убирает повторы и берет только уникальные символы
+print("Количество уникальных символов:", char)
+
+words = phrase.split() # split() разрезает строку по пробелам
+u_words = len(set(words))
+print("Количество уникальных слов:", u_words)
+
+clean_phrase = phrase.replace(" ", "") # убрать пробелы, чтобы прога не считала их
+most_char = max(set(clean_phrase), key=clean_phrase.count) # key тут, чтобы прога считала по 
+                                                            #значению, а не просто буквы
+print("Чаще всего встречается символ:", most_char)
 

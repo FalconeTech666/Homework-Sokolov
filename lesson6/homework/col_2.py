@@ -41,7 +41,7 @@ staff = {
 name = input("Введите ФИО сотрудника: ")
 
 if name in staff:
-    print(staff[name])
+    print(staff[name]) # обращение к словарю staff по ключу name
 else:
     print("Сотрудник не найден")
     quest = input("Хотите добавить нового сотрудника? (да/нет): ")
