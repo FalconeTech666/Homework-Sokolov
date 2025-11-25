@@ -14,3 +14,8 @@
 
 
 '''
+lst = ['qwertyu','asdfggh','zxcvbnm','yuiop[]','hjklasd','mnbvnbv']
+
+for number, word in enumerate(lst, start =1):
+    letter = word[number - 1]
+    print(f"{number} - {word} - {letter}")

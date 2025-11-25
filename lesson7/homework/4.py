@@ -59,7 +59,7 @@ if 3 <= height <= 20:
                 line += "."                    # снег внутри
         print(spaces + line)
 
-    # --- НОЖКА ЁЛКИ ---
+    # ножка для елки
     trunk_width = 3                             # ширина ножки
     trunk_spaces = " " * (height - 2)           # чтобы ножка была по центру
 

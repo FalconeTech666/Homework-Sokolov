@@ -7,4 +7,27 @@
     -распечатать отдельно отзывы
 
 """
+data = {}
 
+while True:
+    key = input("Введите ваше имя: ")
+    if key == "stop":
+        break
+
+    value = input("Оставьте свой отзыв о магазине: ")
+    if value == "stop":
+        break
+
+    data[key] = value      # автоматически добавляет пару key:value
+
+from pprint import pprint
+
+print("Имена пользователей:")
+for name in data.keys():
+    print("-", name)
+
+print("\nКоличество отзывов:", len(data))
+
+print("\nОтзывы:")
+for review in data.values():
+    print("-", review)
