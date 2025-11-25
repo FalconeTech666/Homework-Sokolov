@@ -123,7 +123,7 @@ temp = []
 for skill, info in best_by_skill.items():
     temp.append((info["mastery"], skill, info["name"]))
 
-result = sorted(temp, reverse=True)
+result = sorted(temp, reverse=True) # reverse=True - сортировка от большего к меньшему
 
 # вывожу таблицу
 
