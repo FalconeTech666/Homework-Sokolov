@@ -24,6 +24,8 @@
 #     ...
 # '''
 
+from pprint import pprint
+
 staff = {
     "Смирнов Алексей Викторович": {
         "position": "Python разработчик",
@@ -33,7 +35,7 @@ staff = {
             {"skill": "Django", "mastery": 87},
             {"skill": "SQL", "mastery": 74},
         ],
-        "children": [{"name": "Миша", "birth_year": 2018}]
+        "children": [{"name": "Миша", "birth_year": 2018}],
     },
 
     "Ковалёва Мария Андреевна": {
@@ -47,7 +49,7 @@ staff = {
         "children": [
             {"name": "Анна", "birth_year": 2015},
             {"name": "Сергей", "birth_year": 2020},
-        ]
+        ],
     },
 
     "Жуков Дмитрий Олегович": {
@@ -58,11 +60,50 @@ staff = {
             {"skill": "Linux", "mastery": 93},
             {"skill": "Kubernetes", "mastery": 87},
         ],
-        "children": [{"name": "Олег", "birth_year": 2012}]
-    }
+        "children": [{"name": "Олег", "birth_year": 2012}],
+    },
 }
 
-# --- Анализ навыков: ищем максимум мастерства по каждой технологии ---
+# поиск/добавление сотрудника 
+
+name = input("Введите ФИО сотрудника: ")
+
+if name in staff:
+    pprint(staff[name])  
+else:
+    print("Сотрудник не найден")
+    quest = input("Хотите добавить нового сотрудника? (да/нет): ")
+    if quest.lower() == "да":
+        fio = input("Введите ФИО: ")
+
+        position = input("Введите должность: ")
+        birth_year = int(input("Введите год рождения: "))
+
+        raw_skills = input("Введите 3 навыка через запятую: ").split(",")
+        skills = []
+        for s in raw_skills:
+            skill_name = s.strip()
+            mastery = int(
+                input(f"Введите уровень мастерства для '{skill_name}' (0–100): ")
+            )
+            skills.append({"skill": skill_name, "mastery": mastery})
+
+        child_name = input("Имя ребёнка: ")
+        child_year = int(input("Год рождения ребёнка: "))
+        children = [{"name": child_name, "birth_year": child_year}]
+
+        staff[fio] = {
+            "position": position,
+            "birth_year": birth_year,
+            "skills": skills,
+            "children": children,
+        }
+
+        print("\nТекущий список сотрудников:")
+        pprint(staff)
+
+#Анализ навыков: ищем максимум мастерства по каждой технологии
+
 best_by_skill = {}
 
 for name, data in staff.items():
@@ -70,22 +111,27 @@ for name, data in staff.items():
         skill = item["skill"]
         mastery = item["mastery"]
 
-        # если такого навыка ещё нет или текущий сотрудник лучше — обновляем
         if skill not in best_by_skill or mastery > best_by_skill[skill]["mastery"]:
             best_by_skill[skill] = {
                 "name": name,
-                "mastery": mastery
+                "mastery": mastery,
             }
 
-# Преобразуем в список и сортируем по убыванию мастерства
-result = sorted(best_by_skill.items(), key=lambda x: x[1]["mastery"], reverse=True)
+#Сортировка данных
 
-# --- Вывод таблицы ---
+temp = []
+for skill, info in best_by_skill.items():
+    temp.append((info["mastery"], skill, info["name"]))
+
+result = sorted(temp, reverse=True)
+
+# вывожу таблицу
+
 print("=" * 70)
 print(f"| {'№':<3} | {'Навык':<15} | {'ФИО':<30} | {'Мастерство':<11} |")
 print("=" * 70)
 
-for i, (skill, info) in enumerate(result, start=1):
-    print(f"| {i:<3} | {skill:<15} | {info['name']:<30} | {info['mastery']:<11} |")
+for i, (mastery, skill, name) in enumerate(result, start=1):
+    print(f"| {i:<3} | {skill:<15} | {name:<30} | {mastery:<11} |")
 
 print("=" * 70)
