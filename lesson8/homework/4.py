@@ -10,3 +10,38 @@
 с помощью try перехватить возможные ошибки.
 '''
 
+def format_money(value):
+    try:
+        num = float(value)          # пробуем перевести в число
+    except:
+        return "Ошибка: введите число"
+
+    # всегда два знака после точки
+    num = round(num, 2)
+
+    # разбить на целую и копейку
+    integer = int(num)
+    kopecks = int((num - integer) * 100)
+
+    # если копеек 1 цифра - то сделаю 2
+    if kopecks < 10:
+        kop_str = "0" + str(kopecks)
+    else:
+        kop_str = str(kopecks)
+
+    # делаю разделение по тысячам через пробел
+    s = str(integer)
+    result = ""
+
+    # добавляю пробелы с конца по 3 символа
+    while len(s) > 3:
+        result = " " + s[-3:] + result
+        s = s[:-3]
+
+    result = s + result
+
+    # итоговая денежная запись
+    return result + "." + kop_str + " руб."
+
+user_value = input("Введите сумму: ")
+print(format_money(user_value))

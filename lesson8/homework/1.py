@@ -8,4 +8,21 @@
 
 
 """
+a = "Иван Сергеевич Николаев"
 
+def fio(fullname: str, reverse: bool = False):
+    # делаю порядок
+    first, middle, last = fullname.split()
+
+    # беру первые буквы по индексу
+    initials = f"{first[0]}.{middle[0]}."
+
+    # Формат 1: Фамилия И.О.
+    if not reverse:
+        return f"{last} {initials}"
+
+    # Формат 2: И.О.Фамилия
+    return f"{initials}{last}"
+
+print(fio(a))
+print(fio(a, reverse=True))
