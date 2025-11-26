@@ -28,14 +28,19 @@ height = int(input("Введите высоту елочки от 3 до 20: "))
 if 3 <= height <= 20:
 
     for i in range(1, height + 1):
-        stars = "*" * (2*i - 1)                        # звезды (ветки ёлки)
-        spaces = " " * (height - i)                    # пробелы слева
-        snow_left = "." * (height - i)                 # снег слева
-        snow_right = "." * (height - i)                # снег справа
+        width = 2*i - 1                        # ширина ветки
+        spaces = " " * (height - i)            # отступ слева
 
-        print(snow_left + spaces + stars + snow_right) # собрал все
+        line = ""
 
-else:
+        for pos in range(width):
+            if pos == 0 or pos == width - 1:
+                line += "."                    # снег по краям
+            elif pos % 2 == 1:
+                line += "*"                    # звездочки
+            else:
+                line += "."                    # снег внутри
+        print(spaces + line)
     print("Ошибка! Введите высоту от 3 до 20")
 
 # Елочка со снегом и ножкой
