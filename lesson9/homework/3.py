@@ -7,3 +7,10 @@
 
 '''
 
+def summary(a:int,b:int):
+    if a == b:
+        return(a)
+    else:
+        return(a + summary(a+1, b))
+
+print(summary(3,5))
