@@ -16,3 +16,23 @@ print(c10()) -> 12
 print(c10()) -> 13 
 
 """
+
+def counter(start):
+    current = start
+    
+    def inner():
+        nonlocal current
+        current+=1
+        return current
+    return inner
+
+c1 = counter(1)
+c10 = counter(10)
+
+print(c1())  
+print(c1())   
+print(c1())   
+
+print(c10()) 
+print(c10())  
+print(c10())

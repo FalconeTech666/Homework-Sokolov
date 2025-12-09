@@ -20,3 +20,6 @@
 
 '''
 
+with open("students_grades.txt", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+    parts = lines.split(", ")

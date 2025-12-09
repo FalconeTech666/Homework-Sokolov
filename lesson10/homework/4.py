@@ -8,3 +8,16 @@
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 и так далее.  
 """
 
+def fib(n):
+    a = 0
+    b = 1
+
+    for _ in range(n): # подсмотрел такую фишку "_", если не хочу вводить переменную
+        yield a
+        a, b = b, a + b
+
+gen = fib(3)
+
+print(next(gen))
+print(next(gen))
+print(next(gen))

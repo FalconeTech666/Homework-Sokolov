@@ -10,3 +10,19 @@
     (hello(2()ver(33)python) -> False
 
 """
+
+def bool_ckecker(string):
+    stack = []
+    for char in string:
+        if char ==  "(":
+            stack.append("(")
+        elif char == ")":
+            if stack == []:
+                return False
+            else:
+                stack.pop()
+
+    if stack == []:
+        return True
+    else:
+        return False
