@@ -19,4 +19,21 @@
 Год выпуска: {}
 """
 
+class Phone:
+    def __init__(self, brand, model, issue_year):
+        self.brand = brand
+        self.model = model
+        self.issue_year = issue_year
+    def receive_call(self, name):
+        print(f"{self.brand}-{self.model} - Звонит {name}")
+    def get_info(self):
+        return (self.brand, self.model, self.issue_year)
+    def __str__(self):
+        return f"Бренд: {self.brand}\nМодель: {self.model}\nГод выпуска: {self.issue_year}" 
+pass
 
+p = Phone("Apple", "iPhone 17", 2025)
+
+p.receive_call("Илья")
+print(p.get_info())
+print(p)
