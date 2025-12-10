@@ -51,7 +51,6 @@ class Student:
         return self.average_grade() <= other.average_grade()
     def __ge__(self, other):
         return self.average_grade() >= other.average_grade()
-pass
 
 s1 = Student("Иванов", "Пётр", "9A", [9, 8, 7])
 s2 = Student("Сидоров", "Максим", "9A", [5, 6, 7])
